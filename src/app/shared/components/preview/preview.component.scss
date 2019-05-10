@@ -1,0 +1,27 @@
+.media {
+  padding: 20px 0;
+  max-width: 500px;
+  .previewContainer {
+    width: 100%;
+    min-height: 500px;
+    background: black;
+    margin-bottom: 20px;
+  }
+}
+
+
+.holder {
+  max-width: 500px;
+  margin: auto;
+}
+.image-holder {
+  max-width: 100%;
+  position: relative;
+}
+.image-effect {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: auto;
+}

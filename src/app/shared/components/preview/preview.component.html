@@ -1,0 +1,18 @@
+<article class="media" style="margin:0 auto;">
+    <div class="media-content">
+      <div id="previewContainer" class="previewContainer" #previewContainer style="display:none;"></div>
+      <div class="image-holder" style="margin-bottom: 20px;">
+        <figure class="image">
+          <img [src]="video">
+        </figure>
+        <img *ngIf="effect" [src]="effect" class="image-effect">
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <a class="button is-info" (click)="download()">Share/Download</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </article>

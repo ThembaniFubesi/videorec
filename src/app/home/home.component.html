@@ -1,0 +1,47 @@
+<div>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Take Video</ng-template>
+        <app-video-recorder (captured)="onCaptured($event)"></app-video-recorder>
+        <div *ngIf="model.video">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="effectsForm">
+          <ng-template matStepLabel>Add Effects</ng-template>
+          <div class="holder">
+            <div class="image-holder">
+              <figure class="image">
+                <img [src]="model.video">
+              </figure>
+              <img *ngIf="model.effect" [src]="model.effect" class="image-effect">
+            </div>
+            <br/>
+            <br/>
+            <div class="select">
+              <select formControlName="effect">
+                <option [value]="option.value" *ngFor="let option of effectList">{{option.text}}</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Preview</ng-template>
+          <div>
+            <app-preview [video]="model.video" [effect]="model.effect"></app-preview>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext>Done</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+</div>
